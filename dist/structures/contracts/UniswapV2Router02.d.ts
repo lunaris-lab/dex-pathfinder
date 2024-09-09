@@ -1,0 +1,34 @@
+import { IUniswapV2Router02AddLiquidityParams, IUniswapV2Router02AddLiquidityETHParams, IUniswapV2Router02RemoveLiquidityParams, IUniswapV2Router02RemoveLiquidityETHParams, IUniswapV2Router02RemoveLiquidityETHSupportingFeeOnTransferTokensParams, IUniswapV2Router02RemoveLiquidityETHWithPermitParams, IUniswapV2Router02RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensParams, IUniswapV2Router02RemoveLiquidityWithPermitParams, IUniswapV2Router02SwapETHForExactTokensParams, IUniswapV2Router02SwapExactETHForTokensParams, IUniswapV2Router02SwapExactETHForTokensSupportingFeeOnTransferTokensParams, IUniswapV2Router02SwapExactTokensForETHParams, IUniswapV2Router02SwapExactTokensForETHSupportingFeeOnTransferTokensParams, IUniswapV2Router02SwapExactTokensForTokensParams, IUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokensParams, IUniswapV2Router02SwapTokensForExactETHParams, IUniswapV2Router02SwapTokensForExactTokensParams } from "../../types/contracts/UniswapV2Router02";
+import { ContractOperation } from "./ContractOperation";
+import { IContractConfig } from "../../types/contracts";
+import { Address } from "viem";
+import { UniswapV2Factory } from "./UniswapV2Factory";
+export declare class UniswapV2Router02 {
+    protected config: IContractConfig;
+    address: Address;
+    constructor(config: IContractConfig);
+    WETH(): Promise<string>;
+    addLiquidity(args: IUniswapV2Router02AddLiquidityParams): ContractOperation;
+    addLiquidityETH(args: IUniswapV2Router02AddLiquidityETHParams): ContractOperation;
+    factory(): Promise<UniswapV2Factory>;
+    getAmountIn(amountOut: number, reserveIn: number, reserveOut: number): Promise<number>;
+    getAmountOut(amountIn: number, reserveIn: number, reserveOut: number): Promise<number>;
+    getAmountsIn(amountOut: number, path: string[]): Promise<number[]>;
+    getAmountsOut(amountIn: number, path: string[]): Promise<number[]>;
+    quote(amountA: number, reserveA: number, reserveB: number): Promise<number>;
+    removeLiquidity(args: IUniswapV2Router02RemoveLiquidityParams): ContractOperation;
+    removeLiquidityETH(args: IUniswapV2Router02RemoveLiquidityETHParams): ContractOperation;
+    removeLiquidityETHSupportingFeeOnTransferTokens(args: IUniswapV2Router02RemoveLiquidityETHSupportingFeeOnTransferTokensParams): ContractOperation;
+    removeLiquidityETHWithPermit(args: IUniswapV2Router02RemoveLiquidityETHWithPermitParams): ContractOperation;
+    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(args: IUniswapV2Router02RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensParams): ContractOperation;
+    removeLiquidityWithPermit(args: IUniswapV2Router02RemoveLiquidityWithPermitParams): ContractOperation;
+    swapETHForExactTokens(args: IUniswapV2Router02SwapETHForExactTokensParams): ContractOperation;
+    swapExactETHForTokens(args: IUniswapV2Router02SwapExactETHForTokensParams): ContractOperation;
+    swapExactETHForTokensSupportingFeeOnTransferTokens(args: IUniswapV2Router02SwapExactETHForTokensSupportingFeeOnTransferTokensParams): ContractOperation;
+    swapExactTokensForETH(args: IUniswapV2Router02SwapExactTokensForETHParams): ContractOperation;
+    swapExactTokensForETHSupportingFeeOnTransferTokens(args: IUniswapV2Router02SwapExactTokensForETHSupportingFeeOnTransferTokensParams): ContractOperation;
+    swapExactTokensForTokens(args: IUniswapV2Router02SwapExactTokensForTokensParams): ContractOperation;
+    swapExactTokensForTokensSupportingFeeOnTransferTokens(args: IUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokensParams): ContractOperation;
+    swapTokensForExactETH(args: IUniswapV2Router02SwapTokensForExactETHParams): ContractOperation;
+    swapTokensForExactTokens(args: IUniswapV2Router02SwapTokensForExactTokensParams): ContractOperation;
+}

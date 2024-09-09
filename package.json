@@ -2,7 +2,6 @@
   "dependencies": {
     "@lunarislab/web3tokens": "^1.0.24",
     "abstract-level": "^2.0.0",
-    "level": "^8.0.1",
     "viem": "^2.21.1"
   },
   "devDependencies": {
@@ -11,9 +10,9 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
-  "name": "dex-engine",
+  "name": "@lunarislab/dex-pathfinder",
   "version": "1.0.0",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node ./src/test.ts"

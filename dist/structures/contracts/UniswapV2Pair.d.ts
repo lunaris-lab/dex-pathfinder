@@ -1,0 +1,31 @@
+import { IUniswapV2PairEvents, IUniswapV2PairSyncParams, IUniswapV2PairGetReservesReturns, IUniswapV2PairSkimParams } from "../../types/contracts/UniswapV2Pair";
+import { ContractOperation } from "./ContractOperation";
+import { IContractConfig } from "../../types/contracts";
+import { Address } from "viem";
+import { ERC20, IERC20Permit } from "@lunarislab/web3tokens";
+export declare class UniswapV2Pair {
+    protected config: IContractConfig;
+    address: Address;
+    poolToken: ERC20 & IERC20Permit;
+    tokenA?: ERC20;
+    tokenB?: ERC20;
+    constructor(config: IContractConfig);
+    on<T extends keyof IUniswapV2PairEvents>(eventName: T, callback: IUniswapV2PairEvents[T]): import("viem").WatchContractEventReturnType;
+    protected _token0(): Promise<Address>;
+    protected _token1(): Promise<Address>;
+    fetch(): Promise<void>;
+    DOMAIN_SEPARATOR(): Promise<string>;
+    MINIMUM_LIQUIDITY(): Promise<number>;
+    PERMIT_TYPEHASH(): Promise<string>;
+    factory(): Promise<string>;
+    getReserves(): Promise<IUniswapV2PairGetReservesReturns>;
+    kLast(): Promise<number>;
+    price0CumulativeLast(): Promise<number>;
+    price1CumulativeLast(): Promise<number>;
+    skim(args: IUniswapV2PairSkimParams): ContractOperation;
+    sync(args: IUniswapV2PairSyncParams): ContractOperation;
+    buyTokenA(amountToBuy: number): Promise<void>;
+    buyTokenB(amountToBuy: number): Promise<void>;
+    sellTokenA(amountToSell: number): Promise<void>;
+    sellTokenB(amountToSell: number): Promise<void>;
+}

@@ -9,7 +9,7 @@
 To install `dex-pathfinder`, use npm or yarn:
 
 ```bash
-npm install dex-pathfinder
+npm install @lunarislab/dex-pathfinder
 ```
 
 ## How it works?

@@ -1,5 +1,5 @@
 import { ERC20 } from "@lunarislab/web3tokens";
-import { ContractOperation } from "../../../structures/ContractOperation";
+import { ContractOperation } from "../../structures/contracts/ContractOperation";
 import { Log, WatchContractEventReturnType } from "viem";
 
 export interface IUniswapV2PairEvents {
