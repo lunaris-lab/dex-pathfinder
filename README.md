@@ -71,7 +71,7 @@ The module will also listen all new blocks and update all pairs reserves to keep
 
 ## Usage
 
-Once all the fetching process is done, you can use the swap function to find the best path to swap between two tokens.
+Once all the fetching process is done and indexed, you can use the swap function to find the best path to swap between two tokens.
 
 Note that depending on your params, it can be really heavy in calculations. The depth and minPoolSize params are here
 to let you control the precision.
@@ -104,6 +104,11 @@ I recommend using less than 6 as depth, but it depend on your hardware.
        console.log(swap);
    })();
 ```
+
+To understand how it find paths, you have to understand how pairs are indexed. The index create a graph
+where each node is a token and all links are a pair.
+
+Once we have a graph it allow applying a pathfinding algorithm (DFS in that case), similar to algorithms used for GPS, and find all existing paths. Then instead of calculating distances like GPS, we just need to calculate the return for each paths and sort them.
 
 The project is currently under heavy development, and not yet ready for production usage.
 
